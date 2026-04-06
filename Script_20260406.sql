@@ -158,8 +158,9 @@ INSERT INTO takes values('1292303','C501-01','A+');
 
 COMMIT;
 
-
-
+/*
+쓰레기통 비우기 : purge recyclebin;
+*/
 
 
 
