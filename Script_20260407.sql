@@ -1,0 +1,149 @@
+SELECT * 
+FROM STUDENT;
+
+/* purge recyclebin; 	# 휴지통 비우기*/
+
+UPDATE STUDENT 
+SET YEAR = YEAR - 1;
+
+SELECT * 
+FROM STUDENT;
+
+UPDATE PROFESSOR 
+SET POSITION='교수', DEPT_ID='923'
+WHERE NAME='고희석';
+
+SELECT * -- DEPT_ID=920, POSITION='부교수'
+FROM PROFESSOR 
+WHERE NAME='고희석';
+
+UPDATE PROFESSOR 
+SET POSITION='부교수', DEPT_ID='920'
+WHERE NAME='고희석';
+
+SELECT * -- DEPT_ID=920, POSITION='부교수'
+FROM PROFESSOR 
+WHERE NAME='고희석';
+
+SELECT * 
+FROM PROFESSOR 
+WHERE NAME='김태석';
+
+DELETE -- SELECT *
+FROM PROFESSOR 
+WHERE NAME='김태석';
+
+SELECT * FROM PROFESSOR;
+
+SELECT * FROM DEPARTMENT;
+
+SELECT * FROM STUDENT;
+
+INSERT INTO STUDENT 
+VALUES ('1292002','900305*1730021','강승진',3,'서울','921');	-- 무결성 제약 조건!!
+
+SELECT * FROM TAB;
+
+/*
+SELECT * 
+FROM ~
+WHERE ~
+*/
+
+SELECT * 
+FROM STUDENT;
+
+SELECT NAME 
+FROM STUDENT;
+
+SELECT STU_ID, NAME, YEAR  
+FROM STUDENT;
+
+SELECT ADDRESS   
+FROM STUDENT;
+
+SELECT DISTINCT ADDRESS   
+FROM STUDENT;
+
+SELECT RESIDENT_ID, STU_ID, NAME, YEAR   
+FROM STUDENT;
+
+SELECT *   
+FROM PROFESSOR;
+
+SELECT NAME, 2026-YEAR_EMP    
+FROM PROFESSOR;
+
+SELECT NAME, STU_ID, DEPT_ID 
+FROM STUDENT;
+
+SELECT DEPT_ID, DEPT_NAME 
+FROM DEPARTMENT;
+
+SELECT STUDENT.NAME, STUDENT.STU_ID, DEPARTMENT.DEPT_NAME 
+FROM STUDENT, DEPARTMENT 
+WHERE STUDENT.DEPT_ID = DEPARTMENT.DEPT_ID;		-- //카테션 프로덕트 연산// --
+
+SELECT * FROM DEPARTMENT;
+
+SELECT * FROM STUDENT;
+
+SELECT * 
+FROM STUDENT, DEPARTMENT;
+
+SELECT * 
+FROM STUDENT, DEPARTMENT 
+WHERE STUDENT.DEPT_ID = DEPARTMENT.DEPT_ID;		-- //카티션 프러덕트 연산// --
+
+SELECT NAME, DEPT_NAME 
+FROM STUDENT, DEPARTMENT 
+WHERE STUDENT.DEPT_ID = DEPARTMENT.DEPT_ID;		-- //카티션 프러덕트 연산// --
+
+SELECT student.stu_id 		-- SELECT 조회 커리
+FROM student, department 
+WHERE student.dept_id = department.dept_id AND 
+student.year = 3 AND 
+department.dept_name = '컴퓨터공학과';
+
+SELECT student.stu_id, NAME 		-- SELECT 조회 커리 --
+FROM student, department 
+WHERE student.dept_id = department.dept_id AND 
+student.year = 3 AND 
+department.dept_name = '컴퓨터공학과';
+
+SELECT student.stu_id, STUDENT.DEPT_ID  		-- SELECT 조회 커리 --
+FROM student, department 
+WHERE student.dept_id = department.dept_id AND 
+student.year = 3 AND 
+department.dept_name = '컴퓨터공학과';
+
+SELECT NAME, STU_ID 
+FROM STUDENT 
+WHERE YEAR = 3 OR YEAR = 4 
+ORDER BY NAME, STU_ID; 
+
+SELECT NAME, STU_ID 
+FROM STUDENT 
+WHERE YEAR = 3 OR YEAR = 4 
+ORDER BY NAME DESC, STU_ID;		-- 역순정렬(DESC) --
+
+SELECT S.NAME, D.DEPT_NAME  
+FROM STUDENT s, DEPARTMENT d 
+WHERE S.DEPT_ID = D.DEPT_ID; 	-- 재명명 연산 --
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
