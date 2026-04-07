@@ -125,15 +125,127 @@ ORDER BY NAME, STU_ID;
 SELECT NAME, STU_ID 
 FROM STUDENT 
 WHERE YEAR = 3 OR YEAR = 4 
-ORDER BY NAME DESC, STU_ID;		-- 역순정렬(DESC) --
+ORDER BY NAME DESC, STU_ID;		-- 역순정렬(DESC: 내림차순) cf.ASC: 오름차순 --
 
 SELECT S.NAME, D.DEPT_NAME  
 FROM STUDENT s, DEPARTMENT d 
 WHERE S.DEPT_ID = D.DEPT_ID; 	-- 재명명 연산 --
 
+SELECT * 
+FROM STUDENT 
+WHERE ADDRESS = '서울';
+
+SELECT ADDRESS 
+FROM STUDENT 
+WHERE NAME = '김광식';
+
+SELECT * 
+FROM STUDENT s1, STUDENT s2;  
+
+SELECT S2.NAME 
+FROM STUDENT s1, STUDENT s2 
+WHERE S1.ADDRESS = S2.ADDRESS 
+AND S1.NAME ='김광식';
+
+SELECT NAME, POSITION, 2026-YEAR_EMP 
+FROM PROFESSOR;
+
+SELECT NAME 이름, POSITION AS 직위, 2026-YEAR_EMP 재직연수 
+FROM PROFESSOR;
 
 
 
+################################################################################
+/* 프로그래머스 : SELECT 조회 쿼리 - "모든 레코드 조회하기"
+SELECT * 
+FROM ANIMAL_INS
+ORDER BY ANIMAL_ID;
+*/
+################################################################################
+/* 프로그래머스 : SELECT 조회 쿼리 - "인기있는 아이스크림"
+SELECT FLAVOR
+FROM FIRST_HALF
+ORDER BY TOTAL_ORDER DESC, SHIPMENT_ID;		# DESC: 내림차순 // ASC: 오름차순
+*/
+################################################################################
+
+
+
+SELECT * 
+FROM STUDENT 
+WHERE NAME LIKE '김%';
+
+
+
+SELECT * 
+FROM STUDENT 
+WHERE RESIDENT_ID LIKE '%*2%' 
+OR RESIDENT_ID LIKE '%*4%';
+
+
+
+SELECT * 
+FROM STUDENT 
+WHERE SUBSTR(RESIDENT_ID, 8, 1) IN ('2', '4');
+
+
+
+SELECT NAME FROM STUDENT
+UNION ALL -- 중복데이터 허용! --
+SELECT NAME FROM PROFESSOR;
+
+
+
+SELECT S.STU_ID -- [1292001], 1292002, [1292003]
+FROM STUDENT s, DEPARTMENT d, TAKES t 
+WHERE S.DEPT_ID = D.DEPT_ID 
+AND T.STU_ID = S.STU_ID 
+AND d.DEPT_NAME = '컴퓨터공학과' 
+AND GRADE = 'A+';
+
+
+
+SELECT STU_ID  -- [1292001], [1292003], 1292003
+FROM STUDENT s, DEPARTMENT d 
+WHERE S.DEPT_ID = D.DEPT_ID 
+AND d.DEPT_NAME = '컴퓨터공학과'
+INTERSECT 
+SELECT STU_ID 
+FROM TAKES 
+WHERE GRADE = 'A+';
+
+
+
+SELECT STU_ID -- 1292301, [1292303], 1292305
+FROM STUDENT s, DEPARTMENT d 
+WHERE S.DEPT_ID = D.DEPT_ID 
+AND d.DEPT_NAME = '산업공학과'
+MINUS
+SELECT STU_ID -- [1292001], 1292003, [129303]
+FROM TAKES 
+WHERE GRADE = 'A+';
+
+
+SELECT * FROM COURSE;
+
+
+SELECT * FROM CLASS;
+
+
+SELECT TITLE, CREDIT, YEAR, SEMESTER, DIVISION 		-- DIVISION만 추가하려면 목록에 추가시키면 됨
+FROM COURSE, CLASS 
+WHERE COURSE.COURSE_ID = CLASS.COURSE_ID;
+
+
+
+################################################################################
+/* 프로그래머스 : SELECT 조회 쿼리 - "강원도에 위치한 생산공장 목록 출력하기"
+SELECT FACTORY_ID, FACTORY_NAME, ADDRESS
+FROM FOOD_FACTORY
+WHERE ADDRESS LIKE '강원도%'
+ORDER BY FACTORY_ID ASC;		# DESC: 내림차순 // ASC: 오름차순
+*/
+################################################################################
 
 
 
