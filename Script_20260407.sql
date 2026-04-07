@@ -156,13 +156,13 @@ FROM PROFESSOR;
 
 
 ################################################################################
-/* 프로그래머스 : SELECT 조회 쿼리 - "모든 레코드 조회하기"
+/* 프로그래머스 : SELECT 조회 쿼리문 - "모든 레코드 조회하기"
 SELECT * 
 FROM ANIMAL_INS
 ORDER BY ANIMAL_ID;
 */
 ################################################################################
-/* 프로그래머스 : SELECT 조회 쿼리 - "인기있는 아이스크림"
+/* 프로그래머스 : SELECT 조회 쿼리문 - "인기있는 아이스크림"
 SELECT FLAVOR
 FROM FIRST_HALF
 ORDER BY TOTAL_ORDER DESC, SHIPMENT_ID;		# DESC: 내림차순 // ASC: 오름차순
@@ -239,7 +239,7 @@ WHERE COURSE.COURSE_ID = CLASS.COURSE_ID;
 
 
 ################################################################################
-/* 프로그래머스 : SELECT 조회 쿼리 - "강원도에 위치한 생산공장 목록 출력하기"
+/* 프로그래머스 : SELECT 조회 쿼리문 - "강원도에 위치한 생산공장 목록 출력하기"
 SELECT FACTORY_ID, FACTORY_NAME, ADDRESS
 FROM FOOD_FACTORY
 WHERE ADDRESS LIKE '강원도%'
