@@ -154,15 +154,19 @@ AND DNAME = 'ACCOUNTING';
 
 ########################################################
 /* 프로그래머스 : SUM, MAX, MIN - "가장 비싼 상품 구하기"
+
 SELECT MAX(PRICE) AS MAX_PRICE 
 FROM PRODUCT;
-*/
+
+**/
 ########################################################
 /* 프로그래머스 : SELECT 조회 쿼리문 - "역순정렬하기"
+
 SELECT NAME, DATETIME
 FROM ANIMAL_INS
 ORDER BY ANIMAL_ID DESC;
-*/
+
+**/
 ########################################################
 
 
@@ -300,11 +304,13 @@ WHERE GRADE <> 'A+';
 
 ###########################################################
 /* 프로그래머스 : IS NULL - "이름이 없는 동물의 아이디"
+
 SELECT ANIMAL_ID  
 FROM ANIMAL_INS
 WHERE NAME IS NULL
 ORDER BY ANIMAL_ID
-*/
+
+**/
 ###########################################################
 
 

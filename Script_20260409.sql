@@ -103,12 +103,30 @@ SAL + (CASE WHEN COMM IS NULL
 		ELSE COMM 
 		END) RESULT 
 FROM EMP;
+
+
+SELECT EMPNO, ENAME, SAL, 
+CASE WHEN COMM IS NULL 
+THEN 0 
+ELSE COMM 
+END AS COMMISSON, 
+SAL + COMM  
+FROM EMP;
 ---------------------------------------------------------------
 
 
+######################################################################
+/* 프로그래머스 : SELECT 조회 쿼리문 - "조건에 부합하는 중고거래 댓글 조회하기"
 
+SELECT B.TITLE, B.BOARD_ID, R.REPLY_ID, R.WRITER_ID, R.CONTENTS, 
+       TO_CHAR(R.CREATED_DATE, 'YYYY-MM-DD') AS CREATED_DATE
+FROM USED_GOODS_BOARD B
+INNER JOIN USED_GOODS_REPLY R ON B.BOARD_ID = R.BOARD_ID
+WHERE TO_CHAR(B.CREATED_DATE, 'YYYY-MM') = '2022-10'
+ORDER BY R.CREATED_DATE ASC, B.TITLE ASC;
 
-
+**/
+######################################################################
 
 
 
