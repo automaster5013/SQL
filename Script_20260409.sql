@@ -1,0 +1,119 @@
+SELECT DEPTNO AS 부서코드, DNAME AS 부서명, LOC AS 지역 
+FROM DEPT;
+
+SELECT DEPTNO 부서코드, DNAME 부서명, LOC 지역 
+FROM DEPT;
+
+
+SELECT EMPNO, ENAME || '(' || JOB || ')' EMPLOYEE 
+FROM EMP;
+
+
+SELECT ENAME, ROUND(SAL/12, 1), TRUNC(SAL/12, 1) 	-- ROUND(반올림), TRUNC(버림)
+FROM EMP;
+
+
+SELECT SYSDATE, EXTRACT(MONTH FROM SYSDATE), 
+EXTRACT(DAY FROM SYSDATE) 
+FROM DUAL;
+
+-----------------------------------------------------------------------
+SELECT ENAME, HIREDATE, TO_NUMBER(TO_CHAR(HIREDATE, 'YYYY')) 입사년도, 
+TO_NUMBER(TO_CHAR(HIREDATE, 'MM')) 입사월, 
+TO_NUMBER(TO_CHAR(HIREDATE, 'DD')) 입사일 
+FROM EMP;
+
+SELECT ENAME, HIREDATE, 
+TO_CHAR(HIREDATE, 'YYYY') 입사년도, 
+TO_CHAR(HIREDATE, 'MM') 월, 
+TO_CHAR(HIREDATE, 'DD') 일 
+FROM EMP;
+-----------------------------------------------------------------------
+
+
+SELECT SYSDATE FROM DUAL;
+
+SELECT * FROM DUAL;		-- DUMMY TABLE : X값
+
+SELECT SYSDATE FROM DUAL;
+
+SELECT TO_CHAR(SYSDATE, 'YYYY/MM/DD') 날짜, 
+TO_CHAR(SYSDATE, 'YYYY. MON. DAY') 문자형 
+FROM DUAL;
+
+SELECT ENAME, SAL 
+FROM EMP;
+
+SELECT ENAME, SAL, 
+CASE WHEN SAL > 2000 
+THEN SAL 
+ELSE 2000 
+END REVISED_SALARY 	-- 보정된 급여
+FROM EMP;
+
+SELECT * FROM DEPT;
+
+
+-----------------------------------
+SELECT LOC, 
+CASE LOC 
+WHEN 'NEW YORK' THEN 'EAST' 
+WHEN 'BOSTON' THEN 'EAST' 
+WHEN 'CHICAGO' THEN 'CENTER' 
+WHEN 'DALLAS' THEN 'CENTER' 
+ELSE 'ETC' 
+END AS AREA 
+FROM DEPT;
+
+SELECT LOC, 
+DECODE(LOC, 
+'NEW YORK', 'EAST', 
+'BOSTON', 'EAST', 
+'DALLAS', 'CENT1ER', 
+'CHICAGO', 'CENTER') AREA 
+FROM DEPT;
+-----------------------------------
+
+
+SELECT ENAME, 
+CASE 
+	WHEN SAL >= 3000 THEN 'HIGH' 
+	WHEN SAL >= 1000 THEN 'MID' 
+	ELSE 'LOW' 
+END AS SALARY_GRADE 
+FROM EMP
+END;
+
+
+SELECT EMPNO, ENAME, SAL, COMM, SAL+COMM  
+FROM EMP;
+
+
+---------------------------------------------------------------
+SELECT EMPNO, ENAME, SAL, NVL(COMM, 0) FROM EMP;
+
+
+SELECT EMPNO, ENAME, SAL, 
+CASE WHEN COMM IS NULL 
+THEN 0 
+ELSE COMM 
+END AS COMMISSON, 
+SAL + (CASE WHEN COMM IS NULL 
+		THEN 0 
+		ELSE COMM 
+		END) RESULT 
+FROM EMP;
+---------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
