@@ -1,0 +1,51 @@
+/* 프로그래머스 : IS NOT NULL - "이름이 있는 동물의 아이디"
+
+SELECT ANIMAL_ID
+FROM ANIMAL_INS
+WHERE NAME IS NOT NULL
+ORDER BY ANIMAL_ID ASC;
+###################################################(방법01)
+SELECT ANIMAL_ID
+FROM ANIMAL_INS
+WHERE (CASE WHEN NAME IS NOT NULL THEN 1 ELSE 0 END) = 1
+ORDER BY ANIMAL_ID;
+###################################################(방법02)
+SELECT ANIMAL_ID
+FROM ANIMAL_INS
+WHERE LENGTH(NAME) >= 1
+ORDER BY ANIMAL_ID;
+###################################################(방법03)
+
+**/
+
+
+
+SELECT * FROM  EMP
+
+
+INSERT INTO EMP(EMPNO, ENAME) VALUES('1234','LEO')
+
+
+DELETE FROM EMP WHERE EMPNO='5678'
+
+
+SELECT * 
+FROM EMP 
+START WITH MGR IS NULL 
+CONNECT BY PRIOR EMPNO = MGR 
+ORDER SIBLINGS BY EMPNO DESC; 
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
